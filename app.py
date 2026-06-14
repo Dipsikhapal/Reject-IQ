@@ -1,7 +1,5 @@
 import streamlit as st
 from utils import ui, data_manager
-
-# PAGE CONFIG
 st.set_page_config(
     page_title="Customer Rejection Intelligence",
     page_icon="📊",
