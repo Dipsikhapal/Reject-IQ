@@ -1,56 +1,364 @@
-body{
-    background:#0E1117;
+/* ============================================================
+   RejectIQ — Design System
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── Reset & Base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, [data-testid="stAppViewContainer"] {
+  background-color: #0F172A !important;
+  color: #F8FAFC !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
-.main{
-    background:#0E1117;
+[data-testid="stMain"], .main, .block-container {
+  background-color: #0F172A !important;
 }
 
-.block-container{
-    padding-top:2rem;
+.block-container {
+  padding: 2rem 2.5rem 4rem !important;
+  max-width: 1400px !important;
 }
 
-h1{
-    color:#2563EB;
+/* ── Sidebar ──────────────────────────────────────────────── */
+section[data-testid="stSidebar"] {
+  background: #111827 !important;
+  border-right: 1px solid #1E293B !important;
 }
 
-h2{
-    color:#60A5FA;
+section[data-testid="stSidebar"] .block-container {
+  padding: 1.5rem 1rem !important;
 }
 
-h3{
-    color:#93C5FD;
+/* ── Typography ───────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: #F8FAFC !important;
 }
 
-div[data-testid="metric-container"]{
-    background:#111827;
-    border:1px solid #1F2937;
-    padding:15px;
-    border-radius:12px;
+h1 { font-size: 1.875rem !important; }
+h2 { font-size: 1.5rem !important; }
+h3 { font-size: 1.125rem !important; }
+
+p, li, span, label {
+  color: #CBD5E1 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
 }
 
-.stButton>button{
-    width:100%;
-    background:#2563EB;
-    color:white;
-    border:none;
-    border-radius:10px;
-    height:45px;
-    font-weight:bold;
+/* ── KPI / Metric Cards ───────────────────────────────────── */
+div[data-testid="metric-container"] {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+  border-radius: 12px !important;
+  padding: 1.25rem 1.5rem !important;
+  transition: border-color 0.2s ease, transform 0.2s ease !important;
 }
 
-.stButton>button:hover{
-    background:#1D4ED8;
+div[data-testid="metric-container"]:hover {
+  border-color: #2563EB !important;
+  transform: translateY(-2px) !important;
 }
 
-.stDataFrame{
-    border-radius:10px;
+div[data-testid="metric-container"] [data-testid="stMetricLabel"] {
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #94A3B8 !important;
 }
 
-section[data-testid="stSidebar"]{
-    background:#111827;
+div[data-testid="metric-container"] [data-testid="stMetricValue"] {
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+  color: #F8FAFC !important;
+  letter-spacing: -0.03em !important;
 }
 
-hr{
-    border:1px solid #1F2937;
+div[data-testid="metric-container"] [data-testid="stMetricDelta"] {
+  font-size: 0.8rem !important;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.stButton > button {
+  background: #2563EB !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 0.55rem 1.25rem !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease !important;
+  letter-spacing: 0.01em !important;
+}
+
+.stButton > button:hover {
+  background: #1D4ED8 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35) !important;
+}
+
+.stButton > button:active {
+  transform: translateY(0) !important;
+  background: #1E40AF !important;
+}
+
+/* Secondary button variant */
+.btn-secondary .stButton > button {
+  background: transparent !important;
+  border: 1px solid #334155 !important;
+  color: #CBD5E1 !important;
+}
+
+.btn-secondary .stButton > button:hover {
+  border-color: #2563EB !important;
+  color: #F8FAFC !important;
+  box-shadow: none !important;
+}
+
+/* Danger button */
+.btn-danger .stButton > button {
+  background: #EF4444 !important;
+}
+.btn-danger .stButton > button:hover {
+  background: #DC2626 !important;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.35) !important;
+}
+
+/* ── Form Inputs ──────────────────────────────────────────── */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stSelectbox > div > div > div {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+  border-radius: 8px !important;
+  color: #F8FAFC !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.875rem !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+  border-color: #2563EB !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  outline: none !important;
+}
+
+.stTextInput label, .stTextArea label, .stSelectbox label,
+.stMultiSelect label, .stDateInput label, .stFileUploader label {
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  color: #94A3B8 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  margin-bottom: 4px !important;
+}
+
+/* Selectbox dropdown */
+.stSelectbox > div > div {
+  background: #1E293B !important;
+  border-color: #334155 !important;
+}
+
+/* Multiselect */
+.stMultiSelect > div > div {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+  border-radius: 8px !important;
+}
+
+/* ── DataFrames / Tables ──────────────────────────────────── */
+.stDataFrame {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  border: 1px solid #1E293B !important;
+}
+
+.stDataFrame iframe {
+  border-radius: 12px !important;
+}
+
+/* ── Divider ──────────────────────────────────────────────── */
+hr, [data-testid="stDivider"] {
+  border: none !important;
+  border-top: 1px solid #1E293B !important;
+  margin: 1.75rem 0 !important;
+}
+
+/* ── Alert / Status boxes ─────────────────────────────────── */
+.stSuccess, [data-testid="stAlert"][data-baseweb="notification"] {
+  border-radius: 8px !important;
+  border-left-width: 3px !important;
+}
+
+div[data-testid="stAlert"] {
+  border-radius: 8px !important;
+  font-size: 0.875rem !important;
+}
+
+/* ── Info box ─────────────────────────────────────────────── */
+.stInfo {
+  background: rgba(6, 182, 212, 0.08) !important;
+  border-color: #06B6D4 !important;
+}
+
+/* ── Download Button ──────────────────────────────────────── */
+[data-testid="stDownloadButton"] > button {
+  background: transparent !important;
+  border: 1px solid #334155 !important;
+  color: #94A3B8 !important;
+  font-size: 0.8rem !important;
+  padding: 0.4rem 0.9rem !important;
+}
+
+[data-testid="stDownloadButton"] > button:hover {
+  border-color: #2563EB !important;
+  color: #F8FAFC !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ── File Uploader ────────────────────────────────────────── */
+[data-testid="stFileUploaderDropzone"] {
+  background: #1E293B !important;
+  border: 1px dashed #334155 !important;
+  border-radius: 10px !important;
+  transition: border-color 0.2s ease !important;
+}
+
+[data-testid="stFileUploaderDropzone"]:hover {
+  border-color: #2563EB !important;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0F172A; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+/* ── Plotly Chart Container ───────────────────────────────── */
+.js-plotly-plot {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+/* ── Sidebar nav improvements ─────────────────────────────── */
+section[data-testid="stSidebar"] .stButton > button {
+  background: transparent !important;
+  border: 1px solid #1E293B !important;
+  color: #94A3B8 !important;
+  text-align: left !important;
+  font-size: 0.85rem !important;
+  padding: 0.5rem 0.75rem !important;
+  width: 100% !important;
+}
+
+section[data-testid="stSidebar"] .stButton > button:hover {
+  background: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* ── Radio buttons ────────────────────────────────────────── */
+.stRadio > div {
+  gap: 0.5rem !important;
+}
+
+.stRadio > div > label {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+  cursor: pointer !important;
+  transition: border-color 0.2s ease !important;
+}
+
+/* ── Caption ──────────────────────────────────────────────── */
+.stCaption, [data-testid="stCaptionContainer"] {
+  color: #475569 !important;
+  font-size: 0.75rem !important;
+}
+
+/* ── Checkbox ─────────────────────────────────────────────── */
+.stCheckbox > label {
+  font-size: 0.875rem !important;
+  color: #CBD5E1 !important;
+}
+
+/* ── Expander ─────────────────────────────────────────────── */
+[data-testid="stExpander"] {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+  border-radius: 10px !important;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+  background: transparent !important;
+  border-bottom: 1px solid #1E293B !important;
+  gap: 0 !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+  background: transparent !important;
+  color: #94A3B8 !important;
+  border-bottom: 2px solid transparent !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  padding: 0.75rem 1.25rem !important;
+}
+
+.stTabs [aria-selected="true"] {
+  color: #F8FAFC !important;
+  border-bottom-color: #2563EB !important;
+}
+
+/* ── Form submit button ───────────────────────────────────── */
+[data-testid="stFormSubmitButton"] > button {
+  background: #2563EB !important;
+  color: white !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+}
+
+[data-testid="stFormSubmitButton"] > button:hover {
+  background: #1D4ED8 !important;
+}
+
+/* ── Spinner ──────────────────────────────────────────────── */
+.stSpinner > div {
+  border-top-color: #2563EB !important;
+}
+
+/* ── Top padding fix ──────────────────────────────────────── */
+[data-testid="stHeader"] {
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid #1E293B !important;
+}
+
+/* ── Page fade-in ─────────────────────────────────────────── */
+.block-container {
+  animation: pageIn 0.3s ease forwards !important;
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .block-container {
+    padding: 1rem 1rem 3rem !important;
+  }
 }
